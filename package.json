@@ -5,10 +5,15 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q --es-module-specifier-resolution=node dist/index.js\""
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q --es-module-specifier-resolution=node dist/index.js\"",
+    "seed": "esbuild prisma/seed.ts --outfile=node_modules/tmp-seed.cjs --bundle --format=cjs --external:prisma --external:@prisma/client && node node_modules/tmp-seed.cjs --preview-feature"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed"
   },
   "dependencies": {
     "@apollo/server": "^4.0.0",
+    "@prisma/client": "^4.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -19,7 +24,10 @@
     "@types/express": "^4.17.14",
     "@types/node": "^18.11.0",
     "concurrently": "^7.4.0",
+    "esbuild": "^0.15.11",
     "nodemon": "^2.0.20",
+    "prisma": "^4.4.0",
+    "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   }
 }

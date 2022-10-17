@@ -14,3 +14,4 @@ export const typeDefs = `#graphql
     books: [Book]
   }
 `;
+//# sourceMappingURL=schema.js.map

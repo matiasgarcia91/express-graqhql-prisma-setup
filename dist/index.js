@@ -26,3 +26,4 @@ async function startServer() {
     console.log(`🚀 Server ready at http://localhost:${PORT}/`);
 }
 startServer();
+//# sourceMappingURL=index.js.map
